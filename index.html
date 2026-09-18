@@ -744,38 +744,68 @@
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl mx-auto">
 
+          ```html
+<!-- Doctor 1 -->
+<div
+    class="doctor-card reveal bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
+
+    <div class="relative overflow-hidden h-80 bg-gray-100">
+
+        <!-- Doctor photo -->
+        <img src="images/ceo.jpg"
+             alt="Dr Rohan Rawat"
+             class="doctor-img w-full h-full object-cover">
+
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+
+            <div class="flex gap-3">
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/9779812345678"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Contact Dr Rohan Rawat on WhatsApp"
+                   class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-ayurveda-green-700 hover:bg-ayurveda-green-600 hover:text-white transition-colors">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <!-- Email - Opens Gmail compose -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=brahmakumarrawat@gmail.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Email Dr Rohan Rawat"
+                   class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-ayurveda-green-700 hover:bg-ayurveda-green-600 hover:text-white transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="p-8 text-center">
+
+        <h3 class="font-display text-2xl font-bold text-gray-900 mb-1">
+            Dr Rohan Rawat
+        </h3>
+
+        <p class="text-ayurveda-green-600 font-bold text-sm mb-4">
+            CEO
+        </p>
+
+        <p class="text-gray-600 text-sm leading-relaxed">
+            Specializing in chronic diseases, Panchakarma,
+            and lifestyle disorders with over 10 years of clinical experience.
+        </p>
+
+    </div>
+</div>
+
+
+
+
+
                 
-                <!-- Doctor 1 -->
-                <div
-                    class="doctor-card reveal bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group">
-                    <div class="relative overflow-hidden h-80 bg-gray-100">
-                        <!-- Add actual doctor photo here -->
-                        <img src="images/ceo.jpg" alt="Dr Rohan Rawat" class="doctor-img w-full h-full object-cover">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <div class="flex gap-3">
-                              <a href="https://wa.me/9779812345678" target="_blank" rel="noopener">
-                                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-ayurveda-green-700 hover:bg-ayurveda-green-600 hover:text-white transition-colors"><i
-                                        class="fab fa-whatsapp"></i></a>
-                               <a href="mailto:brahmakumarrawat@gmail.com">
-                                    class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-ayurveda-green-700 hover:bg-ayurveda-green-600 hover:text-white transition-colors"><i
-                                        class="fas fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8 text-center">
-                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-1">Dr Rohan Rawat</h3>
-                        <p class="text-ayurveda-green-600 font-bold text-sm mb-4">CE0</p>
-                        <p class="text-gray-600 text-sm leading-relaxed">Specializing in chronic diseases, Panchakarma,
-                            and lifestyle disorders with over 10 years of clinical experience.</p>
-                    </div>
-                </div>
-
-
-
-
-
-
                 <!-- Doctor 2 -->
                 <div class="doctor-card reveal bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 group"
                     style="transition-delay:0.1s;">
