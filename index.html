@@ -1242,24 +1242,13 @@
                     </div>
                     <div class="mt-8">
                         <button type="submit"
-                            class="w-full bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-xl font-bold transition-all shadow-md active:scale-95 text-lg"
+                            class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white py-4 rounded-xl font-bold transition-all shadow-md active:scale-95 text-lg flex items-center justify-center gap-3"
                             id="submitBtn">
-                            Confirm Booking
+                            <i class="fas fa-check-circle text-xl"></i>
+                            Confirm Book
                         </button>
                     </div>
                 </form>
-<div id="successMessage" class="hidden text-center py-10">
-                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-check text-4xl text-green-500"></i>
-                    </div>
-                    <h4 class="font-display text-2xl font-bold text-gray-900 mb-2">Request Sent!</h4>
-                    <p class="text-gray-600 mb-8">We will contact you shortly to confirm your appointment time.</p>
-                    <button onclick="closeAppointmentModal()"
-                        class="bg-gray-900 hover:bg-black text-white px-8 py-3 rounded-full font-bold transition-all">Close
-                        Window</button>
-                </div>
-
-                
             </div>
         </div>
     </div>
@@ -1344,15 +1333,11 @@
         // Appointment Modal
         const appointmentModal = document.getElementById('appointmentModal');
         const appointmentForm = document.getElementById('appointmentForm');
-        const successMessage = document.getElementById('successMessage');
-        const submitBtn = document.getElementById('submitBtn');
 
         function openAppointmentModal() {
             appointmentModal.classList.add('active');
             document.body.style.overflow = 'hidden';
             appointmentForm.reset();
-            appointmentForm.classList.remove('hidden');
-            successMessage.classList.add('hidden');
 
             const dateInput = document.getElementById('preferredDate');
             if (dateInput) {
@@ -1372,30 +1357,18 @@
         function handleAppointmentSubmit(e) {
             e.preventDefault();
 
-            const fullName = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const date = document.getElementById('preferredDate').value;
             const time = document.getElementById('preferredTime').value;
-            const service = document.getElementById('service').value;
+            const service = document.getElementById('service').value || 'Consultation';
 
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            submitBtn.disabled = true;
+            const whatsappText = `Hello Bikalpa Ayurveda Clinic,\n\n*New Appointment Request*\n\n*Name:* ${fullName}\n*Phone:* ${phone}\n*Date:* ${date}\n*Time:* ${time}\n*Service:* ${service}`;
 
-            setTimeout(() => {
-                const whatsappText = `Hello Bikalpa Ayurveda Clinic,%0A%0A*New Appointment Request*%0A%0A*Name:* ${encodeURIComponent(fullName)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Date:* ${encodeURIComponent(date)}%0A*Time:* ${encodeURIComponent(time)}%0A*Service:* ${encodeURIComponent(service || 'Consultation')}`;
+            const whatsappURL = `https://wa.me/9779860394297?text=${encodeURIComponent(whatsappText)}`;
 
-                appointmentForm.classList.add('hidden');
-                successMessage.classList.remove('hidden');
-
-                submitBtn.innerHTML = 'Confirm Booking';
-                submitBtn.disabled = false;
-
-                setTimeout(() => {
-                    if (confirm('Click OK to send your booking details via WhatsApp for immediate confirmation.')) {
-                        window.open(`https://wa.me/9779860394297?text=${whatsappText}`, '_blank');
-                    }
-                }, 500);
-            }, 1000);
+            // Confirm Book -> directly open WhatsApp. No JavaScript popup.
+            window.location.href = whatsappURL;
         }
 
         // Gallery Filtering
