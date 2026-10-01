@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bogati Tech - Placeholder</title>
+    
+    <!-- Google Fonts: Inter for clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0B4A9A',     // Primary logo blue
+                            light: '#479EE6',    // Accent logo blue
+                            cyan: '#00d2ff',     // Bright cyber cyan
+                            bg: '#f8fafc',       // Very light gray background
+                        }
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px rgba(71, 158, 230, 0.5)',
+                        'card': '0 20px 40px -15px rgba(11, 74, 154, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            /* Fallback for browsers that don't support dvh */
+            min-height: 100vh; 
+            /* Dynamic Viewport Height for perfect mobile scaling without getting hidden behind address bars */
+            min-height: 100dvh; 
+        }
+
+        /* 3D Cyber Rotation Keyframes */
+        @keyframes cyber-spin {
+            0% { transform: perspective(1000px) rotateY(0deg); }
+            100% { transform: perspective(1000px) rotateY(360deg); }
+        }
+        
+        @keyframes dash-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        .animate-cyber-spin {
+            animation: cyber-spin 8s linear infinite;
+            transform-style: preserve-3d;
+        }
+
+        .animate-dash-spin {
+            animation: dash-spin 12s linear infinite;
+        }
+
+        .cyber-circle {
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4), inset 0 0 15px rgba(11, 74, 154, 0.3);
+            border: 2px solid rgba(71, 158, 230, 0.6);
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg font-sans antialiased text-slate-800 flex items-center justify-center p-4 sm:p-6 md:p-8 w-full overflow-y-auto">
+
+    <!-- Ambient background glows for large screens -->
+    <div class="fixed top-0 left-0 w-full h-full bg-gradient-to-b from-white to-brand-bg -z-20"></div>
+    <div class="fixed top-[-10%] right-[-5%] w-[50vw] h-[50vw] max-w-3xl bg-brand-light/5 rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+    <div class="fixed bottom-[-10%] left-[-5%] w-[50vw] h-[50vw] max-w-3xl bg-brand-blue/5 rounded-full blur-[80px] -z-10 pointer-events-none"></div>
+
+    <!-- Main Card Container -->
+    <main class="w-full max-w-4xl bg-white rounded-3xl shadow-card p-6 py-10 sm:p-10 md:p-16 flex flex-col items-center justify-center text-center relative border border-slate-100 z-10 my-auto transition-all duration-300">
+        
+        <!-- Decorative Top Bar -->
+        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue via-brand-light to-brand-cyan rounded-t-3xl"></div>
+
+        <div class="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 mb-8 sm:mb-10 rounded-full bg-white flex items-center justify-center p-2 cyber-circle animate-cyber-spin shrink-0">
+            <!-- Inner rotating dashed border -->
+            <div class="absolute inset-[3px] rounded-full border-2 border-dashed border-brand-light/50 animate-dash-spin pointer-events-none"></div>
+            
+            <!-- Core Logo Image -->
+            <!-- Primary source is image_772c19.jpg, fallback to fav-icon.jpg -->
+            <img src="image_772c19.jpg" 
+                 alt="Bogati Tech Logo" 
+                 class="w-full h-full object-cover rounded-full shadow-inner relative z-10 bg-white"
+                 onerror="this.onerror=null; this.src='fav-icon.jpg';">
+        </div>
+
+        <div class="flex flex-col items-center w-full max-w-2xl mx-auto space-y-4 sm:space-y-6">
+            
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 leading-tight tracking-tight">
+                Designed and Developed by <br class="hidden sm:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-light">
+                    Bogati Tech
+                </span>
+            </h1>
+
+            <p class="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed font-medium px-2">
+                We build web, solutions, AI automation, SaaS products, and digital marketing.
+            </p>
+        </div>
+
+        <div class="mt-10 sm:mt-12 w-full flex justify-center">
+            <a href="https://bikalpaayurveda.com.np/" 
+               class="group relative inline-flex items-center justify-center px-8 py-4 sm:px-10 sm:py-4 text-base sm:text-lg font-bold text-white transition-all duration-300 bg-brand-blue rounded-full shadow-lg hover:shadow-glow hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-brand-light/50 overflow-hidden w-full sm:w-auto">
+                <!-- Background gradient setup for hover -->
+                <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-blue via-brand-light to-brand-cyan opacity-90 group-hover:opacity-100 transition-opacity duration-300"></span>
+                
+                <!-- Button Content -->
+                <span class="relative z-10 flex items-center">
+                    Go to Home Page
+                    <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        
+    </main>
+
+    <!-- Fixed footer to ensure it stays at bottom without overlapping -->
+    <div class="fixed bottom-4 text-center w-full pointer-events-none">
+        <p class="text-xs text-slate-400 font-medium">
+            &copy; <script>document.write(new Date().getFullYear())</script> Bogati Tech
+        </p>
+    </div>
+
+</body>
+</html>
