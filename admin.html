@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designed & Developed by Bogati Tech</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="fav-icon.jpg">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0B4A9A',     // Primary logo blue
+                            light: '#479EE6',    // Accent logo blue
+                            cyan: '#00f2fe',     // Bright cyber cyan
+                            dark: '#0f172a',     // Slate 900
+                            gray: '#64748b',     // Slate 500
+                            bg: '#f8fafc',       // Slate 50
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 25px 50px -12px rgba(11, 74, 154, 0.15)',
+                        'glow': '0 0 25px rgba(71, 158, 230, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* 3D Cyber Rotation Keyframes */
+        @keyframes cyber-spin {
+            0% { transform: perspective(1200px) rotateY(0deg); }
+            100% { transform: perspective(1200px) rotateY(360deg); }
+        }
+        
+        @keyframes dash-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        .animate-cyber-spin {
+            animation: cyber-spin 10s linear infinite;
+            transform-style: preserve-3d;
+        }
+
+        .animate-dash-spin {
+            animation: dash-spin 15s linear infinite;
+        }
+
+        .cyber-glow {
+            box-shadow: 0 0 30px rgba(71, 158, 230, 0.5), inset 0 0 20px rgba(11, 74, 154, 0.4);
+            border: 2px solid rgba(71, 158, 230, 0.8);
+        }
+
+        /* Glassmorphism utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-brand-bg font-sans antialiased text-brand-dark min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+
+    <!-- Aesthetic Background Elements for 16:9 Scaling -->
+    <div class="fixed top-0 left-0 w-full h-full bg-gradient-to-br from-brand-bg via-white to-slate-100 -z-20"></div>
+    <div class="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-brand-light/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-brand-blue/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+    <!-- Main Content Container -->
+    <main class="w-full max-w-5xl px-4 py-8 md:px-8 lg:px-12 flex flex-col items-center justify-center z-10 min-h-screen">
+        
+        <div class="glass-panel w-full rounded-3xl shadow-soft overflow-hidden relative flex flex-col items-center justify-center p-8 md:p-16 lg:p-20 transition-all duration-500">
+            
+            <!-- Top Gradient Bar -->
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue via-brand-light to-brand-cyan"></div>
+
+            <!-- 3D Cyber Logo -->
+            <div class="relative w-40 h-40 md:w-56 md:h-56 mb-10 md:mb-12 rounded-full bg-white flex items-center justify-center p-2 cyber-glow animate-cyber-spin">
+                <!-- Inner rotating dashed border -->
+                <div class="absolute inset-1 rounded-full border-2 border-dashed border-brand-light/60 animate-dash-spin"></div>
+                <!-- Core Logo Image -->
+                <img src="fav-icon.jpg" 
+                     alt="Bogati Tech" 
+                     class="w-full h-full object-cover rounded-full shadow-inner relative z-10 bg-white"
+                     onerror="this.onerror=null; this.src='image_772c19.jpg';">
+            </div>
+
+            <!-- Headers -->
+            <div class="text-center space-y-4 mb-10 w-full">
+                <h2 class="text-sm md:text-base font-bold tracking-[0.2em] text-brand-light uppercase">
+                    Project Infrastructure
+                </h2>
+                
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-slate-800 leading-tight">
+                    Designed & Developed by<br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-light inline-block mt-2">
+                        Bogati Tech
+                    </span>
+                </h1>
+            </div>
+
+            <!-- Services Section -->
+            <div class="flex flex-col items-center justify-center mb-12 w-full text-center px-4">
+                <p class="text-brand-gray text-base md:text-xl leading-relaxed max-w-3xl">
+                    We build cutting-edge solutions tailored for the modern web. Our expertise spans across 
+                    <span class="text-slate-800 font-medium">Web Solutions, AI Automation, SaaS Products, and Digital Marketing</span>.
+                </p>
+            </div>
+
+            <!-- Call to Action Button -->
+            <a href="https://bikalpaayurveda.com.np/" 
+               class="group relative inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 text-base md:text-lg font-bold text-white transition-all duration-300 bg-gradient-to-r from-brand-blue to-brand-light rounded-full shadow-lg hover:shadow-glow hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-brand-light/50 overflow-hidden">
+                <span class="relative z-10 flex items-center">
+                    Return to Main Website
+                    <svg class="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                </span>
+                <!-- Hover shimmer effect -->
+                <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+            </a>
+
+            <style>
+                @keyframes shimmer {
+                    100% { transform: translateX(100%); }
+                }
+            </style>
+        </div>
+        
+        <!-- Bottom Footer -->
+        <div class="mt-8 text-center">
+            <p class="text-sm text-slate-500 font-medium tracking-wide">
+                &copy; <script>document.write(new Date().getFullYear())</script> Bogati Tech. All rights reserved.
+            </p>
+        </div>
+    </main>
+
+</body>
+</html>
